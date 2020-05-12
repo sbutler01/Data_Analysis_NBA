@@ -65,13 +65,27 @@ TPA_Min <- 48*Data_Main$`3PA`/(Data_Main$MPG*Data_Main$GP)
 #Three point percentage
 TPP <- Data_Main$`3P%`*100
 
-summary(lm(Data_Main$ORTG ~ TPA_Min + TPP))$coef
+fit_1 <- lm(Data_Main$ORTG ~ TPA_Min + TPP)
+
+summary(fit_1)$coef
 
 ```
 
 In this regression output, the variable TPA is rate of player 3-point attempts standardized by the length of a game for interpretability. It can be thought of as the number of three point shots a players would take, if that player played for the entire game. The variable TPP is the player's 3-point percentage.
 
 The negative slope of TPA suggests that the higher the rate of 3-point attempts by a player, the lower the player's offensive rating, on average. Specifically, the slope coefficient implies that, if 3-point percentage is held constant, adding one 3-point attempts per 48 minutes would reduce that player's offensive rating by 1.33. The relationship is statistically significant at even the most stringent significance levels (we'll use $\alpha = 0.01$). Meanwhile, 3-point shooting percentage (TPP) shares a positive relationship with offensive rating with similarly clear statistical significance.
+
+A visual display of the cross-section of the data containing 3-point attempts and offensive rating shows that while there is a lot of variance in the data, there is a clear general downward trends.
+
+```{r}
+
+plot(TPA_Min,Data_Main$ORTG, xlab = '3-point Attempts per Minute Standardized',
+     ylab = 'Offensive Rating', main = '3-Point Attempts vs. Offensive Rating')
+
+abline(a = summary(fit_1)$coef[1], b = summary(fit_1)$coef[2])
+
+```
+
 
 We also look at the relationship between our two independent variables.
 
