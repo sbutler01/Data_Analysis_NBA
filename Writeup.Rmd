@@ -49,6 +49,7 @@ colnames(Data_Main)[16:ncol(Data_Main)] <- c("eFG%","TS%","PPG","RPG","TRB%","AP
 
 #Now we remove missing values
 Data_Main <- Data_Main[-which(is.na(Data_Main[,ncol(Data_Main)])),]
+Data_Main <- Data_Main[-which(Data_Main$ORTG > 200),]
 
 ```
 
@@ -80,7 +81,7 @@ summary(lm(TPA_Min ~ TPP))$coef
 
 ```
 
-So players with higher 3-point percentages tended to take more 3-point shots. The realtionship is again statistically significant at the $\alpha = 0.01$ level. This could raise concerns of multicolinearity in our earlier model, especially given that the two variables share a relatively high correlation of $0.35$. However, in this case the symptoms of multicolinearity would be an artificially positive relationship between three point attempts and offensive rating. We see the opposite in this case, implying that multicolinearity is not the underlying cause of our results.
+So players with higher 3-point percentages tended to take more 3-point shots. The realtionship is again statistically significant at the $\alpha = 0.01$ level. This could raise concerns of multicolinearity in our earlier model, especially given that the two variables share a relatively high correlation of $0.46$. However, in this case the symptoms of multicolinearity would be an artificially positive relationship between three point attempts and offensive rating. We see the opposite in this case, implying that multicolinearity is not the underlying cause of our results.
 
 While the slope coefficient for our second model may seem small, keep in mind the scaling of the variables; a nine percent increase in 3-point percentage encouraging a player to take about 1 additional shot every 48 minutes is a reasonable order of magnitude.
 
@@ -172,7 +173,7 @@ summary(lm(ORB_GM ~ TPA_Min_Test))
 ```
 
 
-We see a substantial and statistically significant negative relationship between 3-point attempts and offensive rebounds in big men. While this might seem inuitively obvious, the most interesting component is the $r^2$ value. The relatively high value $r^2 = 0.35$ shows that a substantial portion of the variation in offensive rebounds of a big man can be explained if the know the player's rate of 3-point attempts. In fact, the $r^2$ implies a correlation of about $-0.59$ (this can be confirmed by calculation), which denotes a strong inverse correlation between 3-point attempts and offensive rebounds.
+We see a substantial and statistically significant negative relationship between 3-point attempts and offensive rebounds in big men. While this might seem inuitively obvious, the most interesting component is the $r^2$ value. The relatively high value $r^2 = 0.34$ shows that a substantial portion of the variation in offensive rebounds of a big man can be explained if the know the player's rate of 3-point attempts. In fact, the $r^2$ implies a correlation of about $-0.59$ (this can be confirmed by calculation), which denotes a strong inverse correlation between 3-point attempts and offensive rebounds.
 
 While this does suggest that big men who take more three point shots miss out on rebound chances, it doesnt necessarily suggest that this is the cause of the offensive rating relationship. First, we don't know how many of those offensive rebounds would have found their way back to the big men who shot them, so the lack of rebouding power may not have directly detracted from the player's rating. Second, offensive rebounds themselves are factored into a player's offensive rating. This raises a unique situation where a variable we had hoped was a confounding variable may be in a fact a causative variable.
 
