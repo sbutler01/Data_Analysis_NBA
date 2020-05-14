@@ -101,7 +101,7 @@ While the slope coefficient for our second model may seem small, keep in mind th
 
 #Investigation of Significance Accounting for Player Minutes
 
-Before further investiagation, there is a major concern worth addressing: our investigation focuses on individual players because it seek to look at the results of player behavior in a general sense. In doing this, it doesn't take into account the impact of each player on the game, but rather weights each player equally. This could raise questions regarding how important this study really is to the outcome of individual games. We repeat the fitting of our above model with each player weighted by the number of minutes played. We could also weight each player by winshares, but this would put us in a sticky situation since our other independent variables are factored into already.
+Before further investigation, there is a major concern worth addressing: our investigation focuses on individual players because it seek to look at the results of player behavior in a general sense. In doing this, it doesn't take into account the impact of each player on the game, but rather weights each player equally. This could raise questions regarding how important this study really is to the outcome of individual games. We repeat the fitting of our above model with each player weighted by the number of minutes played. We could also weight each player by winshares, but this would put us in a sticky situation since our other independent variables are factored into already.
 
 ```{r}
 
