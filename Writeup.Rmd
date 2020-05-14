@@ -12,7 +12,7 @@ urlcolor: blue
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-In recent years, many have noticed a trend in basketball, particularly in the Nation Basketball Association (NBA) toward higher frequency perimeter shooting. This trend is generally credited both to the popularization of modern analytics applied to team strategies and to the success of the Golden State Warriors and Houston Rockets. This paper explores the possibility that this shift has been detrimental to the offensive performance of at least a singificant portion, if not most players in the NBA.
+In recent years, many have noticed a trend in basketball, particularly in the National Basketball Association (NBA) toward higher frequency perimeter shooting. This trend is generally credited both to the popularization of modern analytics applied to team strategies and to the success of the Golden State Warriors and Houston Rockets. This paper explores the possibility that this shift has been detrimental to the offensive performance of at least a singificant portion, if not most players in the NBA.
 
 We use extensive compiled statistics from the 2018-2019 NBA regular season. We limit our scope to this season for two reasons: first, compiling and cleaning datasets of this size is time consuming for what is essentially a preliminary investigation. Second, if any models are created in the course of this study, having separate data sets from other seasons to test it against for validation purposes will be useful.
 
